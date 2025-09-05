@@ -1,28 +1,25 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Maintenance Request Form</h2>
-<form action="/maintenance" method="post">
-  <label>Tenant Name:</label><br>
-  <input type="text" name="tenant_name" required><br><br>
+<form method="post">
+  <label>Tenant Name</label>
+  <input type="text" name="tenant_name" required>
 
-  <label>Unit Number:</label><br>
-  <input type="text" name="unit_number" required><br><br>
+  <label>Unit Number</label>
+  <input type="text" name="unit_number" required>
 
-  <label>Property:</label><br>
+  <label>Property</label>
   <select name="property_name" required>
-    <option value="Macy Mansion">Macy Mansion</option>
-    <option value="Tim Building">Tim Building</option>
-    <option value="Trixie Tower">Trixie Tower</option>
-    <option value="Roma Plaza">Roma Plaza</option>
-    <option value="Osmena Manor">Osmena Manor</option>
-    <option value="Fortview Tower">Fortview Tower</option>
-    <option value="Fort Dow Place">Fort Dow Place</option>
-    <option value="TRP Building">TRP Building</option>
-  </select><br><br>
+    <option value="">--Choose--</option>
+    <option>Macy Mansion</option>
+    <option>Tim Building</option>
+    <option>Trixie Tower</option>
+    <option>Roma Plaza</option>
+    <option>Osmena Manor</option>
+    <option>Fortview Tower</option>
+    <option>Fort Dow Place</option>
+    <option>TRP Building</option>
+  </select>
 
-  <label>Description of Issue:</label><br>
-  <textarea name="description" rows="4" cols="40" required></textarea><br><br>
+  <label>Description of Issue</label>
+  <textarea name="description" required></textarea>
 
-  <button type="submit">Submit</button>
+  <button type="submit">Submit Request</button>
 </form>
-{% endblock %}

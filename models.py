@@ -1,23 +1,20 @@
-from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Text, DateTime
 from datetime import datetime
-
-Base = declarative_base()
+from database import Base   # whatever file your Base = declarative_base() is in
 
 class MaintenanceRequest(Base):
     __tablename__ = "maintenance_requests"
-    id = Column(Integer, primary_key=True, index=True)
-    tenant_name = Column(String, nullable=False)
-    unit_number = Column(String, nullable=False)
-    property_name = Column(String, nullable=False)
-    description = Column(String)
-    created_at = Column(DateTime, default=datetime.utcnow)
 
-class Delivery(Base):
-    __tablename__ = "deliveries"
     id = Column(Integer, primary_key=True, index=True)
-    recipient = Column(String, nullable=False)
-    unit_number = Column(String, nullable=False)
-    property_name = Column(String, nullable=False)
-    payment_option = Column(String, nullable=False)  # "COD" or "Paid"
-    created_at = Column(DateTime, default=datetime.utcnow)
+
+    tenant_name   = Column(String(100), nullable=False)
+    unit_number   = Column(String(20), nullable=False)
+
+    # Store which building they belong to (eg. "Macy Mansion")
+    property_name = Column(String(100), nullable=False)
+
+    description   = Column(Text, nullable=False)
+
+    status        = Column(String(20), default="Pending")  # Pending / In Progress / Completed
+
+    created_at    = Column(DateTime, default=datetime.utcnow)
