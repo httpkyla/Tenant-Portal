@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-semibold mb-4">Admin Dashboard</h2>
+<div class="grid md:grid-cols-5 gap-3">
+  <div class="p-4 bg-white rounded-xl shadow"><div class="text-2xl font-bold">{{counts.tenants}}</div><div class="text-sm text-gray-600">Tenants</div></div>
+  <div class="p-4 bg-white rounded-xl shadow"><div class="text-2xl font-bold">{{counts.buildings}}</div><div class="text-sm text-gray-600">Buildings</div></div>
+  <div class="p-4 bg-white rounded-xl shadow"><div class="text-2xl font-bold">{{counts.maintenance}}</div><div class="text-sm text-gray-600">Maintenance</div></div>
+  <div class="p-4 bg-white rounded-xl shadow"><div class="text-2xl font-bold">{{counts.payments}}</div><div class="text-sm text-gray-600">Payments</div></div>
+  <div class="p-4 bg-white rounded-xl shadow"><div class="text-2xl font-bold">{{counts.deliveries}}</div><div class="text-sm text-gray-600">Deliveries</div></div>
+</div>
+<div class="mt-6 space-x-3">
+  <a class="bg-blue-600 text-white px-4 py-2 rounded" href="/admin/tenants">Manage Tenants</a>
+  <a class="bg-blue-600 text-white px-4 py-2 rounded" href="/admin/buildings">Manage Buildings</a>
+</div>
+{% endblock %}

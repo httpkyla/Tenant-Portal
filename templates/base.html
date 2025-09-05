@@ -1,0 +1,30 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tenant Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="mb-6 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🏢</span>
+        <h1 class="text-2xl font-bold">Tenant Portal</h1>
+      </div>
+      <nav class="space-x-4">
+        <a class="hover:underline" href="/">Home</a>
+        <a class="hover:underline" href="/dashboard">Dashboard</a>
+        <a class="hover:underline" href="/maintenance">Maintenance</a>
+        <a class="hover:underline" href="/payments">Payments</a>
+        <a class="hover:underline" href="/deliveries">Deliveries</a>
+        <a class="hover:underline" href="/admin">Admin</a>
+        <a class="hover:underline text-red-700" href="/logout">Logout</a>
+      </nav>
+    </header>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

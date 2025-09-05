@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-semibold mb-4">Tenants</h2>
+<table class="w-full text-sm border">
+  <thead class="bg-gray-100">
+    <tr><th class="p-2 border">ID</th><th class="p-2 border">Email</th><th class="p-2 border">Building</th><th class="p-2 border">Assign</th></tr>
+  </thead>
+  <tbody>
+  {% for t in tenants %}
+  <tr>
+    <td class="p-2 border">{{t.id}}</td>
+    <td class="p-2 border">{{t.email}}</td>
+    <td class="p-2 border">{{t.building.name if t.building else '-'}}</td>
+    <td class="p-2 border">
+      <form action="/admin/tenants/{{t.id}}/assign-building" method="post" class="flex gap-2">
+        <select name="building_id" class="border rounded px-2 py-1">
+          {% for b in buildings %}
+          <option value="{{b.id}}" {% if t.building_id==b.id %}selected{% endif %}>{{b.name}}</option>
+          {% endfor %}
+        </select>
+        <button class="bg-blue-600 text-white px-3 py-1 rounded">Assign</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

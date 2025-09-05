@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="grid md:grid-cols-2 gap-6">
+  <div class="p-6 bg-white rounded-xl shadow">
+    <h2 class="text-xl font-semibold mb-3">Welcome</h2>
+    <p class="mb-4">Please <a class="text-blue-600 underline" href="/login">log in</a> or <a class="text-blue-600 underline" href="/register">create an account</a>.</p>
+    <p class="text-sm text-gray-600">Admins can visit <code>/admin</code> after logging in.</p>
+  </div>
+  <div class="p-6 bg-white rounded-xl shadow">
+    <h3 class="font-semibold mb-2">Features</h3>
+    <ul class="list-disc pl-5 space-y-1 text-sm">
+      <li>Maintenance requests with photo & status</li>
+      <li>Invoices & payment tracking</li>
+      <li>Deliveries (COD/Prepaid), mark received</li>
+      <li>Downloadable PDF receipts + email</li>
+      <li>Admin: tenants list & buildings</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

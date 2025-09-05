@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-semibold mb-3">Hi, {{user.email}}</h2>
+<div class="grid md:grid-cols-3 gap-4">
+  <a class="p-4 bg-white rounded-xl shadow block" href="/maintenance">🧰 Maintenance</a>
+  <a class="p-4 bg-white rounded-xl shadow block" href="/payments">💳 Payments</a>
+  <a class="p-4 bg-white rounded-xl shadow block" href="/deliveries">📦 Deliveries</a>
+</div>
+{% endblock %}

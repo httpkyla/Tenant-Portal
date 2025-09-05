@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-xl font-semibold mb-4">Buildings</h2>
+<form action="/admin/buildings" method="post" class="flex gap-2 mb-4">
+  <input name="name" placeholder="Building name" required class="border rounded px-3 py-2">
+  <input name="address" placeholder="Address (optional)" class="border rounded px-3 py-2">
+  <button class="bg-green-600 text-white px-4 py-2 rounded">Add</button>
+</form>
+<table class="w-full text-sm border">
+  <thead class="bg-gray-100"><tr><th class="p-2 border">ID</th><th class="p-2 border">Name</th><th class="p-2 border">Address</th></tr></thead>
+  <tbody>
+  {% for b in buildings %}
+  <tr>
+    <td class="p-2 border">{{b.id}}</td>
+    <td class="p-2 border">{{b.name}}</td>
+    <td class="p-2 border">{{b.address or '-'}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
