@@ -14,6 +14,10 @@
         <span class="text-2xl">🏢</span>
         <h1 class="text-2xl font-bold">Tenant Portal</h1>
       </div>
+      
+            <a href="/maintenance/form">Maintenance Request</a> |
+            <a href="/maintenance/list">All Requests</a>
+
       <nav class="space-x-4">
         <a class="hover:underline" href="/">Home</a>
         <a class="hover:underline" href="/dashboard">Dashboard</a>
@@ -22,6 +26,9 @@
         <a class="hover:underline" href="/deliveries">Deliveries</a>
         <a class="hover:underline" href="/admin">Admin</a>
         <a class="hover:underline text-red-700" href="/logout">Logout</a>
+
+    <title>{{ title or "Tenant Portal" }}</title>
+
       </nav>
     </header>
     {% block content %}{% endblock %}

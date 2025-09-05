@@ -20,14 +20,16 @@ class User(Base):
     building_id: Mapped[int | None] = mapped_column(ForeignKey("buildings.id"), nullable=True)
     building = relationship("Building", back_populates="tenants")
 
-class Maintenance(Base):
-    __tablename__ = "maintenance"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    note: Mapped[str] = mapped_column(Text)
-    photo: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    status: Mapped[str] = mapped_column(String(32), default="Pending")  # Pending -> In Progress -> Completed
-    created_at: Mapped[str] = mapped_column(DateTime(timezone=True), server_default=func.now())
+class MaintenanceRequest(Base):
+    __tablename__ = "maintenance_requests"
+
+    id = Column(Integer, primary_key=True, index=True)
+    tenant_name = Column(String(100), nullable=False)
+    unit_number = Column(String(20), nullable=False)
+    property_name = Column(String(100), nullable=False)
+    description = Column(Text, nullable=False)
+    status = Column(String(50), default="Pending")
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 class Payment(Base):
     __tablename__ = "payments"
