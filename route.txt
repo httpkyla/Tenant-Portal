@@ -1,0 +1,7 @@
+@app.get("/admin/maintenance", response_class=HTMLResponse)
+async def admin_maintenance(request: Request, db: Session = Depends(get_db)):
+    requests = db.query(MaintenanceRequest).all()
+    return templates.TemplateResponse(
+        "admin_maintenance.html",
+        {"request": request, "requests": requests}
+    )

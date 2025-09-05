@@ -1,0 +1,23 @@
+<h2>All Maintenance Requests</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Tenant</th><th>Unit</th><th>Property</th>
+      <th>Issue</th><th>Status</th><th>Created</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in requests %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.tenant_name }}</td>
+        <td>{{ r.unit_number }}</td>
+        <td>{{ r.property_name }}</td>
+        <td>{{ r.description }}</td>
+        <td>{{ r.status }}</td>
+        <td>{{ r.created_at }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/admin/maintenance/export">Download CSV</a>
